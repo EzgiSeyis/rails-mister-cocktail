@@ -3,14 +3,28 @@
     <h1>Ezgis Cocktails</h1>
   </div>
 </div>
+<div class="wrapper">
+  <div class="container">
+    <div class="row">
+      <% @cocktails.each do |cocktail| %>
+      <%= link_to cocktail_path(cocktail) do %>
+      <div class="col-sm-4">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2));">
+          <div class="card-body">
+            <div class="cocktail-name">
+              <h1><%= cocktail.name %></h1>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="autor">
+            <h2>by <%= cocktail.author %></h2>
+          </div>
+        </div>
+      </div>
+      <% end %>
+      <% end %>
+    </div>
+  </div>
 
-
-
-
-
-<% @cocktails.each do |cocktail| %>
-<h3><%= link_to cocktail.name, cocktail_path(cocktail) %></h3>
-<% end %>
-<br>
-<%= link_to "Add new cocktails", new_cocktail_path %>
-
+</div>
